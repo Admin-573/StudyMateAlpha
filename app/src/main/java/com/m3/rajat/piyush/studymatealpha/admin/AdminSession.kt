@@ -3,9 +3,6 @@ package com.m3.rajat.piyush.studymatealpha
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.SharedPreferences.Editor
-import com.example.studymate.Admin
-import com.example.studymate.MainActivity
 
 class AdminSession(var context: Context) {
 

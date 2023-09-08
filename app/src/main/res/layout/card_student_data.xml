@@ -31,7 +31,6 @@
             android:id="@+id/student_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu"
             android:textColor="@color/black"
             tools:text="Name" />
 
@@ -42,7 +41,6 @@
             android:layout_height="wrap_content"
             android:textSize="14dp"
             android:textColor="@color/black"
-            android:fontFamily="@font/ubuntu"
             tools:text="Email"/>
 
 

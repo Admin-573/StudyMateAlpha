@@ -1,9 +1,7 @@
 package com.m3.rajat.piyush.studymatealpha
 import android.content.Intent
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -11,10 +9,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
-import com.example.studymate.R
-import com.example.studymate.database.AdminModel
-import com.example.studymate.database.SQLiteHelper
-import com.example.studymate.faculty.faculty_view
+import androidx.appcompat.app.AppCompatActivity
 
 class Admin_view : AppCompatActivity() {
 

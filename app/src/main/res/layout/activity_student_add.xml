@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".student.student_add">
+    tools:context=".student_add">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu"
             android:text="Add Student Here ~"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="22sp" />
