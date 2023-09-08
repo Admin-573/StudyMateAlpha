@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/admin_shape"
+    android:padding="16dp"
+    android:layout_marginBottom="10dp"
+    android:layout_margin="5dp"
+    android:hapticFeedbackEnabled="true"
+    android:weightSum="1">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/student_view_image"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@drawable/add_img"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="4dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/student_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            android:textColor="@color/black"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/student_view_email"
+            android:layout_marginBottom="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/ubuntu"
+            tools:text="Email"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

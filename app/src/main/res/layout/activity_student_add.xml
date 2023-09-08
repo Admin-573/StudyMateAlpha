@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".student.student_add">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            android:text="Add Student Here ~"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="22sp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/student_image"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:src="@drawable/add_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="32dp"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            app:placeholderText="Name...">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Admin_add_Student_name"
+                android:inputType="text"
+                android:drawableLeft="@drawable/admin_profile"
+                android:drawablePadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name Of Student"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            app:placeholderText="you@example.com">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Admin_add_student_email"
+                android:inputType="textPersonName"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Of Student"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            app:passwordToggleEnabled="true"
+            app:placeholderText="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Admin_add_student_pass"
+                android:inputType="textPassword"
+                android:drawablePadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Create Pass For Student"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            app:placeholderText="Division-RollNo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Admin_add_student_class"
+                android:inputType="text"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/admin_add_student_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Class"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdmin_add_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="2dp"
+            android:text="Add Student" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="8dp"
+            android:text="Not Want To Add ?" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
