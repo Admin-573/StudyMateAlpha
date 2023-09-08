@@ -18,6 +18,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminPanelBinding
 import java.io.ByteArrayOutputStream
 
 class Admin_panel : AppCompatActivity() {
@@ -33,10 +34,14 @@ class Admin_panel : AppCompatActivity() {
     private lateinit var adminSession: AdminSession
     private lateinit var  sqLiteHelper: SQLiteHelper
 
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    private lateinit var binding : ActivityAdminPanelBinding
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_panel)
+        binding = ActivityAdminPanelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         sqLiteHelper = SQLiteHelper(this)
         adminSession= AdminSession(this)
@@ -87,8 +92,13 @@ class Admin_panel : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Please Logout To GoBack", Toast.LENGTH_SHORT)
                     .show()
             }
-            toggle.syncState()
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.drawerLayout,binding.topAppBar,R.string.open,R.string.close)
+        binding.drawerLayout.addDrawerListener(actionBarDrawerToggle)
+
+        actionBarDrawerToggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
             navView.setNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.admin_nav_profile -> startActivity(Intent(applicationContext,Admin_view::class.java).putExtra("admin_email",adminSession.sharedPreferences.getString("email","")))
@@ -213,9 +223,6 @@ class Admin_panel : AppCompatActivity() {
 
     //Navigation Drawer OnSelect Event
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
+        return actionBarDrawerToggle.onOptionsItemSelected(item)
     }
 }
