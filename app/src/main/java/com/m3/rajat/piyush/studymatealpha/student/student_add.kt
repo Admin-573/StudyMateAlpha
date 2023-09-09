@@ -102,11 +102,11 @@ private  lateinit var binding : ActivityStudentAddBinding
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
                 byteArray = byteArrayOutputStream.toByteArray()
                 //size validation
-                if(byteArray.size / 1024 < 700) {
+                if(byteArray.size / 1024 < 300) {
                     student_image.setImageBitmap(bitmap)
                     inputStream!!.close()
                 }else{
-                    Toast.makeText(applicationContext,"Choose image below 700K",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext,"Choose image below 300KB",Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

@@ -117,13 +117,13 @@ class faculty_add : AppCompatActivity() {
                     val byteArrayOutputStream = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
                     byteArray = byteArrayOutputStream.toByteArray()
-                        if (byteArray.size / 1024 < 600) {
+                        if (byteArray.size / 1024 < 300) {
                             faculty_image.setImageBitmap(bitmap)
                             inputStream.close()
                         } else {
                             Toast.makeText(
                                 applicationContext,
-                                "Please choose image below 600K",
+                                "Please choose image below 300KB",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
