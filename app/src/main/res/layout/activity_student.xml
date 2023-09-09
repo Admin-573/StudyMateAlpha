@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:textStyle="bold"
             android:text="@string/enter_password_and_login_here"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
@@ -102,7 +103,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/userLogin"
             android:layout_width="match_parent"
-            style="@style/Widget.Material3.Button.TonalButton"
+            style="@style/Widget.Material3.Button"
             android:translationZ="2dp"
             android:stateListAnimator="@null"
             android:layout_height="wrap_content"
@@ -113,7 +114,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/userBack"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
