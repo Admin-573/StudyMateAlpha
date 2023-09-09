@@ -5,8 +5,10 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminBinding
 
 class Admin : AppCompatActivity() {
 
@@ -17,6 +19,7 @@ class Admin : AppCompatActivity() {
     private lateinit var admin_login: Button
     private lateinit var admin_back: Button
 
+    private lateinit var binding : ActivityAdminBinding
     private lateinit var adminSession: AdminSession
     private val AM_ID : Int = (2100000..2200000).random()
 
@@ -27,7 +30,8 @@ class Admin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin)
+        binding = ActivityAdminBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         init_call()
         sqLiteHelper = SQLiteHelper(this)
@@ -49,6 +53,13 @@ class Admin : AppCompatActivity() {
             startActivity(Intent(applicationContext,Admin_panel::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
             finish()
         }
+
+        binding.topAppBar.setNavigationOnClickListener {
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+            finish()
+        }
+
+        onBackPressedDispatcher.addCallback {  }
     }
 
     private fun clearFields() {
@@ -71,7 +82,14 @@ class Admin : AppCompatActivity() {
             finish()
         }
         else {
-            Toast.makeText(this,"Something went wrong !",Toast.LENGTH_SHORT).show()
+            val admin = sqLiteHelper.findId(email)
+            if(admin!=null){
+                if(admin[0].admin_id!=null) {
+                    adminSession.adminLogin(email, name, admin[0].admin_id!!)
+                    Toast.makeText(this, "Admin founded good to go !", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+            }
         }
     }
 

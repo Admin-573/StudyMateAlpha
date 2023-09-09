@@ -310,6 +310,37 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return admList
     }
 
+    //find id
+    fun findId(email : String) : ArrayList<AdminModel>
+    {
+        val admList : ArrayList<AdminModel> = ArrayList()
+        val selectQuery = "SELECT $ADMIN_ID FROM $TBL_ADMIN WHERE $ADMIN_EMAIL='$email' "
+        val db = this.readableDatabase
+
+        val cursor : Cursor?
+
+        try{
+            cursor = db.rawQuery(selectQuery,null)
+        } catch (e : Exception) {
+            e.printStackTrace()
+            db.execSQL(selectQuery)
+            return ArrayList()
+        }
+        var id : Int
+
+        if(cursor.moveToFirst()){
+            do{
+                id = cursor.getInt(cursor.getColumnIndex(ADMIN_ID))
+
+                val adm = AdminModel(admin_id = id)
+                admList.add(adm)
+
+            } while (cursor.moveToNext())
+        }
+        return admList
+    }
+
+
     //Deleting Data Of Student
     fun DeleteStudent(email: String): Int{
         val db = this.writableDatabase

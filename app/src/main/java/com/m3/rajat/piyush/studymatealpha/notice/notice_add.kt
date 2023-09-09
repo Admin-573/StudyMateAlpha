@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminViewBinding
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityNoticeAddBinding
 
 class notice_add : AppCompatActivity() {
     private lateinit var notice_name : EditText
@@ -14,14 +17,15 @@ class notice_add : AppCompatActivity() {
     private lateinit var notice_date : EditText
     private lateinit var notice_add : Button
     private lateinit var btn_back : Button
-
+    private lateinit var binding : ActivityNoticeAddBinding
     private lateinit var sqLiteHelper: SQLiteHelper
     private lateinit var recyclerView: RecyclerView
     private var adapter : NoticeAdapter?= null
     private var adm : AdminModel?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notice_add)
+        binding = ActivityNoticeAddBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initView()
         sqLiteHelper = SQLiteHelper(this)
@@ -37,6 +41,14 @@ class notice_add : AppCompatActivity() {
         btn_back.setOnClickListener {
             onBackPressed()
         }
+
+
+        binding.topAppBar.setNavigationOnClickListener {
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
+            finish()
+        }
+
+        onBackPressedDispatcher.addCallback {  }
 
     }
 

@@ -10,8 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityFacultyAddBinding
 import java.io.ByteArrayOutputStream
 
 class faculty_add : AppCompatActivity() {
@@ -28,12 +30,13 @@ class faculty_add : AppCompatActivity() {
     private lateinit var btn_back : Button
 
     private val FAC_ID : Int = (2100000..2200000).random()
-
+    private lateinit var binding : ActivityFacultyAddBinding
     private lateinit var sqLiteHelper: SQLiteHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_faculty_add)
+        binding = ActivityFacultyAddBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initView()
         faculty_image.isEnabled = false
         sqLiteHelper = SQLiteHelper(this)
@@ -52,6 +55,13 @@ class faculty_add : AppCompatActivity() {
             i.setType("image/*")
             ImageUploading.launch(i)
         }
+
+        binding.topAppBar.setNavigationOnClickListener {
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
+            finish()
+        }
+
+        onBackPressedDispatcher.addCallback {  }
     }
 
     private fun addFaculty() {

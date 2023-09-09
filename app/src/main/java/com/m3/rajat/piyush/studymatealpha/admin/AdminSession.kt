@@ -22,7 +22,6 @@ class AdminSession(var context: Context) {
         editor.putString("name",name)
         editor.commit()
     }
-
     fun login() : Boolean{
         return sharedPreferences.getBoolean("login",false)
     }

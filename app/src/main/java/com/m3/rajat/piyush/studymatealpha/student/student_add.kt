@@ -8,8 +8,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityStudentAddBinding
 import java.io.ByteArrayOutputStream
 
 class student_add : AppCompatActivity() {
@@ -23,14 +25,15 @@ class student_add : AppCompatActivity() {
 
     private lateinit var btn_add_student : Button
     private lateinit var btnBack : Button
-
+private  lateinit var binding : ActivityStudentAddBinding
     private val STUD_ID : Int = (2200000..2300000).random()
 
     private lateinit var sqLiteHelper: SQLiteHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_student_add)
+        binding = ActivityStudentAddBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initView()
         student_image.isEnabled = false
@@ -52,6 +55,13 @@ class student_add : AppCompatActivity() {
             ImageUploading.launch(i)
         }
 
+
+        binding.topAppBar.setNavigationOnClickListener {
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
+            finish()
+        }
+
+        onBackPressedDispatcher.addCallback {  }
     }
 
     private fun addStudent() {

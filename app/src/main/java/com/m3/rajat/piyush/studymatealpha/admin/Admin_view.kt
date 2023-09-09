@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminViewBinding
 
 class Admin_view : AppCompatActivity() {
 
@@ -20,11 +21,14 @@ class Admin_view : AppCompatActivity() {
     private lateinit var email : EditText
     private lateinit var image : ImageView
     private lateinit var btn_update : Button
+    private  lateinit var  binding : ActivityAdminViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_view)
+        binding = ActivityAdminViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         sqLiteHelper = SQLiteHelper(this)
         adminSession = AdminSession(this)
+
 
         id = findViewById(R.id.Admin_updateId)
         name = findViewById(R.id.Admin_updatename)
@@ -61,6 +65,12 @@ class Admin_view : AppCompatActivity() {
                 Toast.makeText(this,"Something Went Wrong", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.topAppBar.setNavigationOnClickListener {
+            startActivity(Intent(applicationContext, Admin_panel::class.java))
+            finish()
+        }
+
         onBackPressedDispatcher.addCallback {  }
     }
 
