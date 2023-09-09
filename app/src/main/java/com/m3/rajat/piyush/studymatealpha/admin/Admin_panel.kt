@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.navigation.NavigationView
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminPanelBinding
 import java.io.ByteArrayOutputStream
@@ -24,12 +25,12 @@ import java.io.ByteArrayOutputStream
 class Admin_panel : AppCompatActivity() {
 
     private lateinit var toggle:ActionBarDrawerToggle
-    private lateinit var add_faculty : LinearLayout
-    private lateinit var add_student : LinearLayout
-    private lateinit var add_notice : LinearLayout
-    private lateinit var add_assignment : LinearLayout
-    private lateinit var admin_aboutus : LinearLayout
-    private lateinit var admin_contactus : LinearLayout
+    private lateinit var add_faculty : MaterialCardView
+    private lateinit var add_student : MaterialCardView
+    private lateinit var add_notice : MaterialCardView
+    private lateinit var add_assignment : MaterialCardView
+    private lateinit var admin_aboutus : MaterialCardView
+    private lateinit var admin_contactus : MaterialCardView
     private lateinit var byteArray: ByteArray
     private lateinit var adminSession: AdminSession
     private lateinit var  sqLiteHelper: SQLiteHelper

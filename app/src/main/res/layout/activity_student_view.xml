@@ -10,6 +10,7 @@
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/ll1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -30,6 +31,7 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <LinearLayout
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -41,9 +43,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewStudent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

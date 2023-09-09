@@ -39,4 +39,27 @@
     <string name="add_assignment">Add Assignment</string>
     <string name="not_want_to_add">Not Want To Add ?</string>
     <string name="add_assignments">Add Assignments</string>
+    <string name="email">email</string>
+    <string name="name">name</string>
+    <string name="notice_des">Notice Des</string>
+    <string name="notice_name">Notice Name</string>
+    <string name="date">Date</string>
+    <string name="assignment_desc">Assignment desc</string>
+    <string name="assignment_name">Assignment Name</string>
+    <string name="admin">Admin</string>
+    <string name="admin_gmail_com">Admin@gmail.com</string>
+    <string name="admin_email">Admin Email</string>
+    <string name="student_sid">Student Sid</string>
+    <string name="update_name">Update Name</string>
+    <string name="update_pass_for_student">Update Pass For Student</string>
+    <string name="update_email">Update Email</string>
+    <string name="update_class">Update Class</string>
+    <string name="update_student">Update Student</string>
+    <string name="delete_student">Delete Student</string>
+    <string name="oops_under_development">Oops Under Development !</string>
+    <string name="name_of_student">Name Of Student</string>
+    <string name="email_of_student">Email Of Student</string>
+    <string name="create_pass_for_student">Create Pass For Student</string>
+    <string name="enter_class">Enter Class</string>
+    <string name="add_student">Add Student</string>
 </resources>

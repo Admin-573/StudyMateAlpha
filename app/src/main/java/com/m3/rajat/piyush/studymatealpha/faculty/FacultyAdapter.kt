@@ -38,9 +38,9 @@ class FacultyAdapter : RecyclerView.Adapter<FacultyAdapter.FacultyViewHolder>() 
     }
 
     class FacultyViewHolder(var view: View): RecyclerView.ViewHolder(view) {
-        private var name = view.findViewById<TextView>(R.id.faculty_view_name)
-        private var email = view.findViewById<TextView>(R.id.faculty_view_email)
-        private var image = view .findViewById<ImageView>(R.id.faculty_view_image)
+        private var name = view.findViewById<TextView>(R.id.FacultyName)
+        private var email = view.findViewById<TextView>(R.id.FacultyEmail)
+        private var image = view .findViewById<ImageView>(R.id.UserAccountProfile)
 
         fun bindView(adm : AdminModel){
             name.text = adm.faculty_name
