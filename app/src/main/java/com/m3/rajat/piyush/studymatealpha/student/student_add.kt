@@ -68,7 +68,7 @@ private  lateinit var binding : ActivityStudentAddBinding
         val name = student_name.text.toString()
         val email = student_email.text.toString()
         val pass = student_password.text.toString()
-        val sub = student_class.text.toString()
+        val sub = student_class.text.toString().uppercase()
 
         val student = AdminModel(
             student_id = STUD_ID,
@@ -94,10 +94,6 @@ private  lateinit var binding : ActivityStudentAddBinding
 
         rc ->
         if (rc.resultCode == RESULT_OK) {
-            val name = student_name.text.toString()
-            val email = student_email.text.toString()
-            val pass = student_password.text.toString()
-            val sub = student_class.text.toString()
             val uri = rc.data!!.data
             try {
                 val inputStream = contentResolver.openInputStream(uri!!)

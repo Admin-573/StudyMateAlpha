@@ -41,10 +41,12 @@ class StudentAdapter : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() 
         private var name = view.findViewById<TextView>(R.id.StudentName)
         private var email = view.findViewById<TextView>(R.id.StudentEmailId)
         private var image = view.findViewById<ImageView>(R.id.UserAccountProfile)
+        private var sub = view.findViewById<TextView>(R.id.StudentClass)
 
         fun bindView(adm : AdminModel){
             name.text = adm.student_name
             email.text = adm.student_email
+            sub.text = adm.student_class
             if (adm.student_image!=null){
                 image.setImageBitmap(BitmapFactory.decodeByteArray(adm.student_image,0,adm.student_image!!.size))
             }

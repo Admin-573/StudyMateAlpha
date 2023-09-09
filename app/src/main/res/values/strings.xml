@@ -41,6 +41,7 @@
     <string name="add_assignments">Add Assignments</string>
     <string name="email">email</string>
     <string name="name">name</string>
+    <string name="subject">Subject</string>
     <string name="notice_des">Notice Des</string>
     <string name="notice_name">Notice Name</string>
     <string name="date">Date</string>
@@ -88,4 +89,5 @@
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
     <string name="communicate">Communicate</string>
+    <string name="Class">Class</string>
 </resources>

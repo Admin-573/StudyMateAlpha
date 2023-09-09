@@ -24,12 +24,24 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/UserAccountProfile"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/add_img"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/FacultySub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginBottom="3dp"
+                android:textStyle="bold"
+                android:text="@string/subject"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/UserAccountProfile"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/FacultyName"
@@ -40,7 +52,7 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@id/FacultyEmail"
                 app:layout_constraintStart_toEndOf="@id/UserAccountProfile"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/FacultySub" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/FacultyEmail"
