@@ -152,7 +152,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="17dp"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:text="@string/not_want_to_add" />
 
     </LinearLayout>
