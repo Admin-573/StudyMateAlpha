@@ -6,48 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".Admin_view">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cod"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:background="@drawable/rc_admin"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_24"
-            android:background="@drawable/rc1_admin"
-            android:padding="7dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="17dp"
-            android:contentDescription="@string/back_button" />
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </LinearLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/back_24"
+                app:title="Update admin profile"
+                app:titleCentered="true"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cod">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/Admin_updateimage"
-            android:layout_width="152dp"
-            android:layout_height="152dp"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
             android:src="@drawable/add_img"
-            app:civ_circle_background_color="#FCF5FD"
-            app:civ_border_width="4dp"
-            app:civ_border_overlay="true"
-            app:civ_border_color="#FCF5FD"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +53,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             app:placeholderText="Name...">
 
@@ -81,8 +76,8 @@
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             app:placeholderText="Name...">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -100,8 +95,8 @@
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             app:placeholderText="Email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -121,11 +116,12 @@
             android:id="@+id/btnAdmin_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:translationZ="@null"
+            android:layout_marginLeft="32dp"
+            android:translationZ="2dp"
+            android:stateListAnimator="@null"
             android:elevation="3dp"
             android:layout_marginTop="32dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="2dp"
             android:text="@string/update_your_detail" />
 

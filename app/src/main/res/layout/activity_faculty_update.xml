@@ -8,7 +8,10 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -29,12 +32,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/Admin_update_faculty_image"
@@ -51,8 +51,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             app:placeholderText="Name...">
 
@@ -60,9 +60,9 @@
                 android:id="@+id/Admin_update_faculty_Id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/sid"
+                android:drawableStart="@drawable/sid"
                 android:drawablePadding="10dp"
-                android:hint="Faculty Fid"
+                android:hint="@string/faculty_fid"
                 android:editable="false"
                 android:focusable="false"
                 android:cursorVisible="false"
@@ -74,18 +74,18 @@
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             app:placeholderText="Name...">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Admin_update_faculty_name"
                 android:inputType="text"
-                android:drawableLeft="@drawable/admin_add_faculty_name"
+                android:drawableStart="@drawable/admin_add_faculty_name"
                 android:drawablePadding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Update Name"/>
+                android:hint="@string/update_name"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,18 +93,18 @@
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             app:placeholderText="Email...">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Admin_update_faculty_email"
                 android:inputType="textEmailAddress"
-                android:drawableLeft="@drawable/email"
+                android:drawableStart="@drawable/email"
                 android:drawablePadding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="you@example.com"/>
+                android:hint="@string/you_example_com"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,8 +112,8 @@
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             app:passwordToggleEnabled="true"
             app:placeholderText="Password">
 
@@ -123,7 +123,7 @@
                 android:drawablePadding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Update Pass For Faculty"/>
+                android:hint="@string/update_pass_for_faculty"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,18 +131,18 @@
             android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             app:placeholderText="Subject...">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Admin_update_faculty_sub"
                 android:inputType="text"
                 android:drawablePadding="10dp"
-                android:drawableLeft="@drawable/admin_add_faculty_sub"
+                android:drawableStart="@drawable/admin_add_faculty_sub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Update Subject"/>
+                android:hint="@string/update_subject"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,35 +153,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAdmin_update_faculty"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:translationZ="@null"
+            android:layout_marginLeft="32dp"
+            android:translationZ="2dp"
+            android:stateListAnimator="@null"
             android:elevation="3dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="2dp"
-            android:text="Update Faculty" />
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/update_faculty" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDeleteFaculty"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:translationZ="@null"
-            android:textColor="#F44336"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="8dp"
-            android:text="Delete Faculty" />
+            android:textColor="@color/design_default_color_error"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/delete_faculty" />
 
     </LinearLayout>
 

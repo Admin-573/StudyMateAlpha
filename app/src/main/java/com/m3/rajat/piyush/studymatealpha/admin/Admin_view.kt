@@ -19,7 +19,6 @@ class Admin_view : AppCompatActivity() {
     private lateinit var name: EditText
     private lateinit var email : EditText
     private lateinit var image : ImageView
-    private lateinit var btn_back : ImageButton
     private lateinit var btn_update : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +30,6 @@ class Admin_view : AppCompatActivity() {
         name = findViewById(R.id.Admin_updatename)
         email = findViewById(R.id.Admin_updateemail)
         image = findViewById(R.id.Admin_updateimage)
-        btn_back = findViewById(R.id.btnBack)
         btn_update = findViewById(R.id.btnAdmin_update)
 
         val adminId = adminSession.sharedPreferences.getInt("id",0)
@@ -54,10 +52,6 @@ class Admin_view : AppCompatActivity() {
                     image.setImageDrawable(resources.getDrawable(R.drawable.add_img))
                 }
             }
-        }
-
-        btn_back.setOnClickListener {
-            startActivity(Intent(applicationContext,Admin_panel::class.java))
         }
 
         btn_update.setOnClickListener {

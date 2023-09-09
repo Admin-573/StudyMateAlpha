@@ -12,17 +12,15 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/under_dev"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -33,33 +31,32 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/faculty_login" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="StudyMate"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="22sp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             android:textStyle="bold" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginRight="72dp"
             android:gravity="center"
-            android:text="Sutex Bank College Of Computer Application And Science"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="18sp" />
+            android:text="@string/stx_clg"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="27dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="42dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             app:placeholderText="you@example.com">
 
@@ -69,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/email"
                 android:drawablePadding="10dp"
-                android:hint="Enter Your Email"
+                android:hint="@string/enter_your_email"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -82,20 +79,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCheck"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="2dp"
+            android:translationZ="2dp"
+            android:stateListAnimator="@null"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/login" />
 
         <com.google.android.material.button.MaterialButton
@@ -103,10 +100,10 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="8dp"
-            android:text="Go to home" />
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="17dp"
+            android:text="@string/go_to_home" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

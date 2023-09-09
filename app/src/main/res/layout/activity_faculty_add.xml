@@ -6,42 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".faculty_add">
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/back_24"
+                app:title="Faculty register"
+                app:titleCentered="true"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Faculty Here ~"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="22sp" />
+        app:layout_constraintTop_toBottomOf="@id/cod"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/faculty_image"
-            android:layout_width="92dp"
-            android:layout_height="92dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:src="@drawable/add_img"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             app:placeholderText="Name...">
 
@@ -49,9 +58,9 @@
                 android:id="@+id/Admin_add_faculty_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/admin_add_faculty_name"
+                android:drawableStart="@drawable/admin_add_faculty_name"
                 android:drawablePadding="10dp"
-                android:hint="Name Of Faculty"
+                android:hint="@string/name_of_faculty"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -59,8 +68,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             app:placeholderText="Email...">
 
@@ -68,9 +77,9 @@
                 android:id="@+id/Admin_add_faculty_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/email"
+                android:drawableStart="@drawable/email"
                 android:drawablePadding="10dp"
-                android:hint="you@example.com"
+                android:hint="@string/you_example_com"
                 android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -78,8 +87,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="8dp"
             app:passwordToggleEnabled="true"
             app:placeholderText="Password">
@@ -89,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10dp"
-                android:hint="Create Pass For Faculty"
+                android:hint="@string/create_pass_for_faculty"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -97,8 +106,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"
             app:placeholderText="Subject...">
 
@@ -106,9 +115,9 @@
                 android:id="@+id/Admin_add_faculty_sub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/admin_add_faculty_sub"
+                android:drawableStart="@drawable/admin_add_faculty_sub"
                 android:drawablePadding="10dp"
-                android:hint="Enter Subject"
+                android:hint="@string/enter_subject"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,31 +129,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAdmin_add_faculty"
+            style="@style/Widget.Material3.Button"
+            android:translationZ="2dp"
+            android:stateListAnimator="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="2dp"
-            android:text="Add Faculty" />
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/add_faculty" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:text="Not Want To Add ?" />
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="17dp"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:text="@string/not_want_to_add" />
 
     </LinearLayout>
 

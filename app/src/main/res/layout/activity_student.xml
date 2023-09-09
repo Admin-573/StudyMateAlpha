@@ -29,19 +29,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/enter_password_and_login_here"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginRight="72dp"
             android:layout_marginBottom="12dp"
             android:gravity="center"
             android:text="@string/stx_clg"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="18sp" />
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -103,6 +102,9 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/userLogin"
             android:layout_width="match_parent"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:translationZ="2dp"
+            android:stateListAnimator="@null"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
@@ -111,7 +113,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/userBack"
-            style="@style/Widget.Material3.Button.OutlinedButton"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
