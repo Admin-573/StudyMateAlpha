@@ -107,7 +107,7 @@ class faculty_update : AppCompatActivity() {
     private fun deleteFaculty(email: String)
     {
         val builder = MaterialAlertDialogBuilder(this)
-        builder.setTitle("Alert")
+        builder.setTitle("Faculty")
         builder.setMessage("Do You Want To Delete This Faculty ?")
         builder.setCancelable(true)
         builder.setPositiveButton("Yes") { dialog,_->

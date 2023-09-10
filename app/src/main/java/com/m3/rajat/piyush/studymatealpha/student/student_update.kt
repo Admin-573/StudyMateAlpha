@@ -101,7 +101,7 @@ class student_update : AppCompatActivity() {
 
     private fun deleteStudent(studentEmail: String) {
         val builder =MaterialAlertDialogBuilder(this)
-        builder.setTitle("Alert")
+        builder.setTitle("Student")
         builder.setMessage("Do You Want To Delete This Student ?")
         builder.setCancelable(true)
         builder.setPositiveButton("Yes") { dialog,_->
