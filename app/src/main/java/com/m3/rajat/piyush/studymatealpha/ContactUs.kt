@@ -5,6 +5,7 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityContactUsBinding
 
 class ContactUs : AppCompatActivity() {
@@ -29,13 +30,20 @@ class ContactUs : AppCompatActivity() {
             }else if(!Patterns.EMAIL_ADDRESS.matcher(binding.emailContact.text.toString()).matches()){
                 Toast.makeText(this,"Email Format Wrong !", Toast.LENGTH_SHORT).show()
             } else if(binding.desContact.length()==0){
-                binding.desContact.setError("Password Required")
+                binding.desContact.setError("Please Fill What You Required")
             } else {
 
                 val contact = AdminModel(cname = binding.nameContact.text.toString() , cemail = binding.emailContact.text.toString() , cdesc = binding.desContact.text.toString())
                 val ok = sqLiteHelper.InsertContactUs(contact)
                 if(ok!=null){
-                    Toast.makeText(applicationContext,"Successfully Submit",Toast.LENGTH_SHORT).show()
+                    val builder = MaterialAlertDialogBuilder(this)
+                    builder.setTitle("Thanks")
+                    builder.setMessage("Your Request Successfully Received Thanks For Contacting Our Company. \n \n If You Had More Interest In Material Please Contact Us Without Any Hesitation. \n")
+                    builder.setNegativeButton("Ok"){ dialog,_->
+                        dialog.dismiss()
+                    }
+                    val alert = builder.create()
+                    alert.show()
                     binding.desContact.text!!.clear()
                 }else{
                     Toast.makeText(applicationContext,"Something went wrong",Toast.LENGTH_SHORT).show()
