@@ -24,7 +24,7 @@ class faculty_add : AppCompatActivity() {
     private lateinit var faculty_sub : EditText
 
     private lateinit var faculty_image : ImageView
-    private lateinit var byteArray: ByteArray
+    private var byteArray: ByteArray? = null
 
     private lateinit var btn_add_faculty : Button
     private lateinit var btn_back : Button
@@ -38,7 +38,6 @@ class faculty_add : AppCompatActivity() {
         binding = ActivityFacultyAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initView()
-        faculty_image.isEnabled = false
         sqLiteHelper = SQLiteHelper(this)
         btn_back.setOnClickListener {
             onBackPressed()
@@ -117,16 +116,16 @@ class faculty_add : AppCompatActivity() {
                     val byteArrayOutputStream = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
                     byteArray = byteArrayOutputStream.toByteArray()
-                        if (byteArray.size / 1024 < 300) {
-                            faculty_image.setImageBitmap(bitmap)
-                            inputStream.close()
-                        } else {
-                            Toast.makeText(
-                                applicationContext,
-                                "Please choose image below 300KB",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
+//                        if (byteArray.size / 1024 < 300) {
+//                        } else {
+//                            Toast.makeText(
+//                                applicationContext,
+//                                "Please choose image below 300KB",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+//                        }
+                    faculty_image.setImageBitmap(bitmap)
+                    inputStream.close()
                 }else{
                     Toast.makeText(this, "Input Stream Null", Toast.LENGTH_SHORT).show()
                 }
@@ -137,11 +136,7 @@ class faculty_add : AppCompatActivity() {
     }
     //don't panic if u can't see a validation
     private fun faculty_validation(): Boolean {
-        if(faculty_image.isEnabled == false){
-            Toast.makeText(this, "Please Upload image", Toast.LENGTH_SHORT).show()
-            faculty_image.isEnabled = true
-            return false
-        }else if(faculty_name.length() == 0){
+        if(faculty_name.length() == 0){
             faculty_name.setError("Name Required")
             return false
         } else if(faculty_email.length()==0) {

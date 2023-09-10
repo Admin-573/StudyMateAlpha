@@ -21,11 +21,11 @@ class student_add : AppCompatActivity() {
     private lateinit var student_class : EditText
 
     private lateinit var student_image : ImageView
-    private lateinit var byteArray: ByteArray
+    private var byteArray: ByteArray? = null
 
     private lateinit var btn_add_student : Button
     private lateinit var btnBack : Button
-private  lateinit var binding : ActivityStudentAddBinding
+    private  lateinit var binding : ActivityStudentAddBinding
     private val STUD_ID : Int = (2200000..2300000).random()
 
     private lateinit var sqLiteHelper: SQLiteHelper
@@ -36,7 +36,6 @@ private  lateinit var binding : ActivityStudentAddBinding
         setContentView(binding.root)
 
         initView()
-        student_image.isEnabled = false
         sqLiteHelper = SQLiteHelper(this)
 
         btnBack.setOnClickListener {
@@ -102,12 +101,12 @@ private  lateinit var binding : ActivityStudentAddBinding
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
                 byteArray = byteArrayOutputStream.toByteArray()
                 //size validation
-                if(byteArray.size / 1024 < 300) {
-                    student_image.setImageBitmap(bitmap)
-                    inputStream!!.close()
-                }else{
-                    Toast.makeText(applicationContext,"Choose image below 300KB",Toast.LENGTH_SHORT).show()
-                }
+//                if(byteArray.size / 1024 < 300) {
+//                }else{
+//                    Toast.makeText(applicationContext,"Choose image below 300KB",Toast.LENGTH_SHORT).show()
+//                }
+                student_image.setImageBitmap(bitmap)
+                inputStream!!.close()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -115,11 +114,7 @@ private  lateinit var binding : ActivityStudentAddBinding
     }
 
     private fun studentValidation(): Boolean {
-        if(student_image.isEnabled == false){
-            Toast.makeText(this, "Please Upload image", Toast.LENGTH_SHORT).show()
-            student_image.isEnabled = true
-            return false
-        }else if(student_name.length() == 0){
+        if(student_name.length() == 0){
             student_name.setError("Name Required")
             return false
         } else if(student_email.length()==0){

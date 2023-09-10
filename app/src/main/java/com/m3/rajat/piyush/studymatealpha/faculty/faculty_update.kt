@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityFacultyUpdateBinding
 
 class faculty_update : AppCompatActivity() {
@@ -105,7 +106,8 @@ class faculty_update : AppCompatActivity() {
 
     private fun deleteFaculty(email: String)
     {
-        val builder = AlertDialog.Builder(this)
+        val builder = MaterialAlertDialogBuilder(this)
+        builder.setTitle("Alert")
         builder.setMessage("Do You Want To Delete This Faculty ?")
         builder.setCancelable(true)
         builder.setPositiveButton("Yes") { dialog,_->
@@ -119,7 +121,6 @@ class faculty_update : AppCompatActivity() {
         }
         val alert = builder.create()
         alert.show()
-
     }
 
     private fun initView() {

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityStudentUpdateBinding
 
 class student_update : AppCompatActivity() {
@@ -99,7 +100,8 @@ class student_update : AppCompatActivity() {
     }
 
     private fun deleteStudent(studentEmail: String) {
-        val builder = AlertDialog.Builder(this)
+        val builder =MaterialAlertDialogBuilder(this)
+        builder.setTitle("Alert")
         builder.setMessage("Do You Want To Delete This Student ?")
         builder.setCancelable(true)
         builder.setPositiveButton("Yes") { dialog,_->

@@ -173,7 +173,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
     {
         val admList : ArrayList<AdminModel> = ArrayList()
         val selectQuery = "SELECT * FROM $TBL_FACULTY"
-        val db = this.writableDatabase
+        val db = this.readableDatabase
 
         val cursor : Cursor?
 
@@ -185,7 +185,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
             return ArrayList()
         }
         var id : Int
-        var image:ByteArray
+        var image:ByteArray? = null
         var name : String
         var email : String
         var password : String
@@ -275,7 +275,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
     {
         val admList : ArrayList<AdminModel> = ArrayList()
         val selectQuery = "SELECT * FROM $TBL_STUDENT ORDER BY $STUDENT_CLASS"
-        val db = this.writableDatabase
+        val db = this.readableDatabase
 
         val cursor : Cursor?
 
@@ -287,7 +287,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
             return ArrayList()
         }
         var id : Int
-        var image : ByteArray
+        var image : ByteArray? = null
         var name : String
         var email : String
         var password : String
