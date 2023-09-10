@@ -60,7 +60,7 @@
 
                         <ImageView
                             android:layout_width="108dp"
-                            android:layout_height="72dp"
+                            android:layout_height="108dp"
                             android:layout_gravity="center"
                             android:src="@drawable/faculty_back"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -99,7 +99,7 @@
 
                         <ImageView
                             android:layout_width="108dp"
-                            android:layout_height="72dp"
+                            android:layout_height="108dp"
                             android:layout_gravity="center"
                             android:src="@drawable/student_back"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -146,7 +146,7 @@
 
                         <ImageView
                             android:layout_width="108dp"
-                            android:layout_height="72dp"
+                            android:layout_height="108dp"
                             android:layout_gravity="center"
                             android:src="@drawable/notice_back"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -185,7 +185,7 @@
 
                         <ImageView
                             android:layout_width="108dp"
-                            android:layout_height="72dp"
+                            android:layout_height="108dp"
                             android:layout_gravity="center"
                             android:src="@drawable/assign_back"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -232,7 +232,7 @@
 
                         <ImageView
                             android:layout_width="108dp"
-                            android:layout_height="72dp"
+                            android:layout_height="108dp"
                             android:layout_gravity="center"
                             android:src="@drawable/aboutus_back"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -271,7 +271,7 @@
 
                         <ImageView
                             android:layout_width="108dp"
-                            android:layout_height="72dp"
+                            android:layout_height="108dp"
                             android:layout_gravity="center"
                             android:src="@drawable/contactus_back"
                             app:layout_constraintLeft_toLeftOf="parent"
