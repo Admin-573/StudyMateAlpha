@@ -25,6 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:title="Admin Panel"
+                    app:titleCentered="true"
                     app:navigationIcon="@drawable/menux"/>
             </com.google.android.material.appbar.AppBarLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

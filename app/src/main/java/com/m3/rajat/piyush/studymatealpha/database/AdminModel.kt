@@ -33,4 +33,9 @@ data class AdminModel (
     var assignment_name : String = "",
     var assignment_sdate : String = "",
     var assignment_type : String = "",
+
+    //ContactUs Content
+    var cname : String = "",
+    var cemail : String = "",
+    var cdesc : String = "",
 )

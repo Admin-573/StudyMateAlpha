@@ -52,6 +52,12 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         private const val ASSIGNMENT_NAME = "assignment_name"
         private const val ASSIGNMENT_TYPE = "assignment_type"
         private const val ASSIGNMENT_SDATE = "assignment_sdate"
+
+        //ContactUs Table
+        private const val TBL_CONTACT = "tbl_contact"
+        private const val CNAME = "contact_name"
+        private const val CEMAIL = "contact_email"
+        private const val CDESC = "contact_desc"
     }
 
     override fun onCreate(p0: SQLiteDatabase?) {
@@ -74,6 +80,10 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         //Assignment Table
         val createTblAssignment = "CREATE TABLE $TBL_ASSIGNMENT($ASSIGNMENT_NAME TEXT PRIMARY KEY,$ASSIGNMENT_SDATE TEXT,$ASSIGNMENT_TYPE VARCHAR(256));"
         p0?.execSQL(createTblAssignment)
+
+        //ContactUs Table
+        val createTblContact = "CREATE TABLE $TBL_CONTACT($CNAME TEXT,$CEMAIL TEXT PRIMARY KEY ,$CDESC VARCHAR(256));"
+        p0?.execSQL(createTblContact)
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -96,6 +106,10 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         //Assignment Table
         p0!!.execSQL("DROP TABLE IF EXISTS $TBL_ASSIGNMENT")
         onCreate(p0)
+
+        //ContactUs Table
+        p0!!.execSQL("DROP TABLE IF EXISTS $TBL_CONTACT")
+        onCreate(p0)
     }
 
     //Inserting Data Of Admin
@@ -111,6 +125,20 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         db.close()
         return insertQuery
     }
+
+    fun InsertContactUs(adm : AdminModel):Long{
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(CNAME,adm.cname)
+        contentValues.put(CEMAIL,adm.cemail)
+        contentValues.put(CDESC,adm.cdesc)
+
+        val insertQuery = db.insert(TBL_CONTACT,null,contentValues)
+        db.close()
+        return insertQuery
+    }
+
 
     //Inserting Data Of Faculty
     fun InsertFaculty(adm : AdminModel):Long{
