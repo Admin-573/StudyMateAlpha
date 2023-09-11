@@ -39,7 +39,7 @@ class student_add : AppCompatActivity() {
         sqLiteHelper = SQLiteHelper(this)
 
         btnBack.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(applicationContext,Admin_panel::class.java))
         }
 
         btn_add_student.setOnClickListener {

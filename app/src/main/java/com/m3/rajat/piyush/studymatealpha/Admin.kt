@@ -45,7 +45,7 @@ class Admin : AppCompatActivity() {
             }
         }
         admin_back.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(applicationContext,MainActivity::class.java))
         }
 
         //if Admin is login then it'll redirected to admin_panel

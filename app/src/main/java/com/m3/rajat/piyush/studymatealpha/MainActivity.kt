@@ -2,6 +2,7 @@ package com.m3.rajat.piyush.studymatealpha
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -20,5 +21,8 @@ class MainActivity : AppCompatActivity() {
         btnOther.setOnClickListener {
             startActivity(Intent(applicationContext,Faculty::class.java))
         }
+
+        onBackPressedDispatcher.addCallback {  }
     }
+
 }

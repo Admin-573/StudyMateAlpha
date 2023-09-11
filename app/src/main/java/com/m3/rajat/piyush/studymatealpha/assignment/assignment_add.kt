@@ -37,7 +37,7 @@ class assignment_add : AppCompatActivity() {
         }
 
         btn_back.setOnClickListener {
-            onBackPressed()
+            startActivity(Intent(applicationContext,Admin_panel::class.java))
         }
 
 

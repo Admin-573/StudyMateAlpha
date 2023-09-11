@@ -51,6 +51,10 @@ class ContactUs : AppCompatActivity() {
             }
         }
 
+        binding.notContactUs.setOnClickListener {
+            startActivity(Intent(applicationContext,Admin_panel::class.java))
+        }
+
         binding.topAppBar.setNavigationOnClickListener {
             startActivity(Intent(applicationContext, Admin_panel::class.java))
             finish()

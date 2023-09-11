@@ -29,7 +29,7 @@ class notice_view : AppCompatActivity() {
         adapter?.addItems(admList)
 
         adapter?.setOnClickItem{
-            Toast.makeText(this,it.notice_name,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Notice Date : "+it.notice_date,Toast.LENGTH_SHORT).show()
         }
 
 
