@@ -98,15 +98,20 @@ class student_add : AppCompatActivity() {
                 val inputStream = contentResolver.openInputStream(uri!!)
                 val bitmap = BitmapFactory.decodeStream(inputStream)
                 val byteArrayOutputStream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream)
                 byteArray = byteArrayOutputStream.toByteArray()
-                //size validation
-//                if(byteArray.size / 1024 < 300) {
-//                }else{
-//                    Toast.makeText(applicationContext,"Choose image below 300KB",Toast.LENGTH_SHORT).show()
-//                }
-                student_image.setImageBitmap(bitmap)
-                inputStream!!.close()
+                if(byteArray!=null) {
+                    if (byteArray!!.size / 1024 < 2048) {
+                        student_image.setImageBitmap(bitmap)
+                        inputStream!!.close()
+                    } else {
+                        Toast.makeText(
+                            applicationContext,
+                            "Please choose image below 2mb",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
