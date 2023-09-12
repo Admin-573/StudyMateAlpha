@@ -11,7 +11,7 @@ android {
         applicationId = "com.m3.rajat.piyush.studymatealpha"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
+        versionCode = 2
         versionName = "v127.0.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
