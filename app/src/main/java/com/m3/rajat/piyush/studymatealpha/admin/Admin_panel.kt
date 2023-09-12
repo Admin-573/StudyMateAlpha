@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.addCallback
@@ -34,7 +33,8 @@ class Admin_panel : AppCompatActivity() {
     private lateinit var byteArray: ByteArray
     private lateinit var adminSession: AdminSession
     private lateinit var  sqLiteHelper: SQLiteHelper
-
+//    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
+//    private var isPermissionGrantedForReadImageAPI33 = false
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     private lateinit var binding : ActivityAdminPanelBinding
 
@@ -54,6 +54,11 @@ class Admin_panel : AppCompatActivity() {
         val name : TextView = view.findViewById(R.id.admin_name_head)
         val email : TextView = view.findViewById(R.id.admin_email_head)
         val image : ImageView = view.findViewById(R.id.admin_photo)
+
+//        permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){
+//            isPermissionGrantedForReadImageAPI33 = it[android.Manifest.permission.READ_MEDIA_IMAGES] ?: isPermissionGrantedForReadImageAPI33
+//        }
+//        reqPermission()
 
         val adminId = adminSession.sharedPreferences.getInt("id",0)
 
@@ -221,6 +226,22 @@ class Admin_panel : AppCompatActivity() {
             }
         }
     }
+
+//    @RequiresApi(Build.VERSION_CODES.TIRAMISU) :: ALSO ADD IN MANIFEST READ_IMAGE PERMISSION FOR API 33 =>
+//    private fun reqPermission(){
+//        isPermissionGrantedForReadImageAPI33 = ContextCompat.checkSelfPermission(
+//            this,android.Manifest.permission.READ_MEDIA_IMAGES)==PackageManager.PERMISSION_GRANTED
+//
+//        val permissionRequest : MutableList<String> = ArrayList()
+//
+//        if (!isPermissionGrantedForReadImageAPI33){
+//            permissionRequest.add(android.Manifest.permission.READ_MEDIA_IMAGES)
+//        }
+//
+//        if (permissionRequest.isNotEmpty()){
+//            permissionLauncher.launch(permissionRequest.toTypedArray())
+//        }
+//    }
 
     //Navigation Drawer OnSelect Event
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
