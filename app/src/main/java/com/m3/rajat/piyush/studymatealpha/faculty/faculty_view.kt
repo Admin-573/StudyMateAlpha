@@ -1,10 +1,18 @@
 package com.m3.rajat.piyush.studymatealpha
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.isEmpty
+import androidx.core.view.setMargins
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityFacultyViewBinding
 
 class faculty_view : AppCompatActivity() {
@@ -25,6 +33,17 @@ class faculty_view : AppCompatActivity() {
 
         val admList = sqlitehelper.getAllFaculty()
         adapter?.addItems(admList)
+
+        if(binding.recyclerViewFaculty.adapter?.itemCount!! == 0){
+            val imageView = LottieAnimationView(this)
+            val lv = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT,ConstraintLayout.LayoutParams.MATCH_PARENT)
+            lv.setMargins(32,32,32,32)
+            imageView.layoutParams = lv
+            binding.con.addView(imageView)
+            imageView.setAnimation(R.raw.admin)
+            imageView.loop(true)
+            imageView.playAnimation()
+        }
 
         adapter?.setOnClickItem{
             startActivity(Intent(applicationContext, faculty_update::class.java)

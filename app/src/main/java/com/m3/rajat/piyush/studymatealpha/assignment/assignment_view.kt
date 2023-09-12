@@ -5,8 +5,10 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAssignmentViewBinding
 
 class assignment_view : AppCompatActivity() {
@@ -33,6 +35,19 @@ class assignment_view : AppCompatActivity() {
         binding.topAppBar.setNavigationOnClickListener {
             startActivity(Intent(applicationContext, Admin_panel::class.java))
             finish()
+        }
+
+        if(binding.recyclerViewAssignment.adapter?.itemCount!! == 0){
+            val imageView = LottieAnimationView(this)
+            val lv = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT)
+            lv.setMargins(32,32,32,32)
+            imageView.layoutParams = lv
+            binding.con.addView(imageView)
+            imageView.setAnimation(R.raw.admin)
+            imageView.loop(true)
+            imageView.playAnimation()
         }
 
         onBackPressedDispatcher.addCallback {  }
