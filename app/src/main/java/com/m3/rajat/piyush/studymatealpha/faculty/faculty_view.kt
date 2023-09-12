@@ -40,7 +40,7 @@ class faculty_view : AppCompatActivity() {
             lv.setMargins(32,32,32,32)
             imageView.layoutParams = lv
             binding.con.addView(imageView)
-            imageView.setAnimation(R.raw.admin)
+            imageView.setAnimation(R.raw.not_found_fac)
             imageView.loop(true)
             imageView.playAnimation()
         }
