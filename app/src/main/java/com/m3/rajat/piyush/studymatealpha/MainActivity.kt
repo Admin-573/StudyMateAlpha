@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btnAdmin = findViewById(R.id.btnAdmin)
         btnOther = findViewById(R.id.btnOther)
-
         btnAdmin.setOnClickListener {
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.TIRAMISU) {
                 requestRuntimePermissionForLowerThanApi33()

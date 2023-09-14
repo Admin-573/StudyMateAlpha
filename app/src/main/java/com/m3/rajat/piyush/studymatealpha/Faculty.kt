@@ -7,15 +7,17 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-
-
-private lateinit var email : EditText
-private lateinit var btnNext : Button
-private lateinit var btnBack : Button
-private lateinit var sqLiteHelper: SQLiteHelper
+import com.m3.rajat.piyush.studymatealpha.faculty.FacultySession
+import com.m3.rajat.piyush.studymatealpha.student.StudentSession
 
 class Faculty : AppCompatActivity() {
 
+    private lateinit var email : EditText
+    private lateinit var btnNext : Button
+    private lateinit var btnBack : Button
+    private lateinit var sqLiteHelper: SQLiteHelper
+    private lateinit var facultySession: FacultySession
+    private lateinit var studentSession: StudentSession
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_faculty)
@@ -24,6 +26,17 @@ class Faculty : AppCompatActivity() {
         btnNext = findViewById(R.id.btnCheck)
         btnBack = findViewById(R.id.btnBack)
         sqLiteHelper = SQLiteHelper(this)
+        facultySession = FacultySession(this)
+        studentSession = StudentSession(this)
+
+        if(facultySession.login()){
+            startActivity(Intent(applicationContext,Faculty_panel::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            finish()
+        }
+        if(studentSession.login()){
+            startActivity(Intent(applicationContext,Student_panel::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            finish()
+        }
 
         btnNext.setOnClickListener {
             if (validation_faculty()){

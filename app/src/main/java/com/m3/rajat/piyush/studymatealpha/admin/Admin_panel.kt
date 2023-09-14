@@ -17,6 +17,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.m3.rajat.piyush.studymatealpha.databinding.ActivityAdminPanelBinding
 import java.io.ByteArrayOutputStream
@@ -130,9 +131,22 @@ class Admin_panel : AppCompatActivity() {
                     }
 
                     R.id.admin_nav_logout -> {
-                        adminSession.adminLogout()
-                        startActivity(Intent(applicationContext, Admin::class.java))
-                        finish()
+                        val materialAlertDialogBuilder = MaterialAlertDialogBuilder(this)
+                            .setMessage("Are you sure want to logout ?")
+                            .setTitle("Information")
+                            .setCancelable(true)
+                            .setPositiveButton("Yes"){
+                                    dialog,msg ->
+                                adminSession.adminLogout()
+                                startActivity(Intent(applicationContext, Admin::class.java))
+                                finish()
+                                dialog.dismiss()
+                            }
+                            .setNegativeButton("No"){
+                                    dialog,msg ->
+                                dialog.dismiss()
+                            }
+                        materialAlertDialogBuilder.create().show()
                     }
 
                     R.id.admin_nav_contactUs -> {
@@ -196,10 +210,10 @@ class Admin_panel : AppCompatActivity() {
                 val inputStream = contentResolver.openInputStream(uri!!)
                 val bitmap = BitmapFactory.decodeStream(inputStream)
                 val stream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
+                bitmap.compress(Bitmap.CompressFormat.PNG,50,stream)
                 byteArray = stream.toByteArray()
                 //size validation
-                if (byteArray.size / 1024 < 700){
+                if (byteArray.size / 1024 < 1024){
                     image.setImageBitmap(bitmap)
                     inputStream!!.close()
 

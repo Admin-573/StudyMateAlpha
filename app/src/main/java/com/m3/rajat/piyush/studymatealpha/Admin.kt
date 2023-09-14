@@ -39,10 +39,7 @@ class Admin : AppCompatActivity() {
         adminSession = AdminSession(this)
 
         admin_login.setOnClickListener {
-            if(validation_admin()){
-                addAdmin()
-                clearFields()
-            }
+            validation_admin()
         }
         admin_back.setOnClickListener {
             startActivity(Intent(applicationContext,MainActivity::class.java))
@@ -113,6 +110,8 @@ class Admin : AppCompatActivity() {
                 || admin_org_no.text.toString() == "INDIA@123"){
                 val Admin_panel = Intent(applicationContext, Admin_panel::class.java)
                 startActivity(Admin_panel)
+                addAdmin()
+                clearFields()
             } else {
                 admin_org_no.setError("Security ID Wrong")
             }

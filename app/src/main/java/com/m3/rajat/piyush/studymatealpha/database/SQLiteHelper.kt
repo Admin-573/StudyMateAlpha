@@ -182,6 +182,58 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context,
         return adminImageList
     }
 
+    @SuppressLint("Range")
+    fun getFaculty(id : Int) : ArrayList<AdminModel>{
+        val db  = this.readableDatabase
+        val faculty : ArrayList<AdminModel> = ArrayList()
+        val cursor : Cursor?
+        try{
+            cursor = db.rawQuery("SELECT * FROM $TBL_FACULTY WHERE $FACULTY_ID = $id ",null)
+        }catch (e:SQLiteException){
+            e.printStackTrace()
+            return faculty
+        }
+        if(cursor.moveToFirst()){
+            do{
+                val fac = AdminModel(
+                    faculty_id = cursor.getInt(cursor.getColumnIndex(FACULTY_ID)),
+                    faculty_image = cursor.getBlob(cursor.getColumnIndex(FACULTY_IMAGE)),
+                    faculty_name = cursor.getString(cursor.getColumnIndex(FACULTY_NAME)),
+                    faculty_email = cursor.getString(cursor.getColumnIndex(FACULTY_EMAIL)),
+                    faculty_sub = cursor.getString(cursor.getColumnIndex(FACULTY_SUB))
+                )
+                faculty.add(fac)
+            }while (cursor.moveToNext())
+        }
+        return faculty
+    }
+
+    @SuppressLint("Range")
+    fun getStudent(id : Int) : ArrayList<AdminModel>{
+        val db  = this.readableDatabase
+        val student : ArrayList<AdminModel> = ArrayList()
+        val cursor : Cursor?
+        try{
+            cursor = db.rawQuery("SELECT * FROM $TBL_STUDENT WHERE $STUDENT_ID = $id ",null)
+        }catch (e:SQLiteException){
+            e.printStackTrace()
+            return student
+        }
+        if(cursor.moveToFirst()){
+            do{
+                val std = AdminModel(
+                    student_id = cursor.getInt(cursor.getColumnIndex(STUDENT_ID)),
+                    student_image = cursor.getBlob(cursor.getColumnIndex(STUDENT_IMAGE)),
+                    student_name = cursor.getString(cursor.getColumnIndex(STUDENT_NAME)),
+                    student_email = cursor.getString(cursor.getColumnIndex(STUDENT_EMAIL)),
+                    student_class = cursor.getString(cursor.getColumnIndex(STUDENT_CLASS))
+                )
+                student.add(std)
+            }while (cursor.moveToNext())
+        }
+        return student
+    }
+
     fun updateImage(adm: AdminModel): Int {
 
         val db = this.writableDatabase

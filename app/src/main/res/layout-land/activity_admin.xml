@@ -75,7 +75,7 @@
                         android:drawableStart="@drawable/org_no"
                         android:drawablePadding="10dp"
                         android:hint="@string/enter_org_no"
-                        android:inputType="text" />
+                        android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

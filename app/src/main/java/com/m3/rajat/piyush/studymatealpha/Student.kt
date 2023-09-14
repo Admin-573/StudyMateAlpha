@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.m3.rajat.piyush.studymatealpha.faculty.FacultySession
+import com.m3.rajat.piyush.studymatealpha.student.StudentSession
 
 class Student : AppCompatActivity() {
 
@@ -15,6 +17,8 @@ class Student : AppCompatActivity() {
     private lateinit var userLogin : Button
     private lateinit var userBack : Button
     private lateinit var  sqLiteHelper: SQLiteHelper
+    private lateinit var facultySession: FacultySession
+    private lateinit var studentSession: StudentSession
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +30,8 @@ class Student : AppCompatActivity() {
         userBack = findViewById(R.id.userBack)
 
         sqLiteHelper = SQLiteHelper(this)
+        facultySession = FacultySession(this)
+        studentSession = StudentSession(this)
 
         val student = intent.getStringExtra("student_email")
         val faculty = intent.getStringExtra("faculty_email")
@@ -47,8 +53,10 @@ class Student : AppCompatActivity() {
                 val valFac = sqLiteHelper.chkPasswdFaculty(id.toInt())
                 if (valFac.isNotEmpty()) {
                     if (userPasswd.text.toString() == valFac[0].faculty_password) {
+                        facultySession.facultyLogin(userId.text.toString().toInt())
                         showToast("Login Successfully !")
-                        startActivity(Intent(applicationContext, Faculty_panel::class.java))
+                        startActivity(Intent(applicationContext, Faculty_panel::class.java)
+                            .putExtra("id",userId.text))
                         userId.text.clear()
                         userPasswd.text.clear()
                     } else {
@@ -56,8 +64,10 @@ class Student : AppCompatActivity() {
                     }
                 }else if (sqLiteHelper.chkPasswdStudent(id.toInt()).isNotEmpty()) {
                     if (userPasswd.text.toString() == sqLiteHelper.chkPasswdStudent(id.toInt())[0].student_password) {
+                        studentSession.studentLogin(userId.text.toString().toInt())
                         showToast("Login Successfully !")
-                        startActivity(Intent(applicationContext, Student_panel::class.java))
+                        startActivity(Intent(applicationContext, Student_panel::class.java)
+                            .putExtra("id",userId.text))
                         userId.text.clear()
                         userPasswd.text.clear()
                     } else {
