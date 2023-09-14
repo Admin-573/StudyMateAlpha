@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -68,7 +67,8 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if(requestCode == 100){
             if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(applicationContext,"Permission Granted !", Toast.LENGTH_LONG).show()
+//                Toast.makeText(applicationContext,"Permission Granted !", Toast.LENGTH_LONG).show()
+                startActivity(Intent(applicationContext,Admin::class.java))
             }else if(!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)){
                 val materialAlertDialogBuilder = MaterialAlertDialogBuilder(this)
                 materialAlertDialogBuilder.setMessage("This feature is unavailable because this feature permission that you have denied."+ "Please allow Image permission from setting to proceed further")
